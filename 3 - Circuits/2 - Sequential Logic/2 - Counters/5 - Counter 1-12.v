@@ -9,7 +9,7 @@ module top_module (
 ); 
 	assign c_enable = enable;
     assign c_load = reset | ((Q == 4'd12) & enable) ;
-    assign c_d = 1'h1;
+    assign c_d = c_load ? 1'h1 : 0;
     count4 the_couter(.clk(clk),.enable(c_enable),.load(c_load),.Q(Q),.d(c_d));
 
 endmodule
